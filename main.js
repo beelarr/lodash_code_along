@@ -109,6 +109,51 @@ let studentGrades = [{"name": "Alice", "grade": 56},
     {"name": "Tweety", "grade": 78},
     {"name": "Mickey", "grade": 100}];
 
+let checkScore = _.forEach(studentGrades, (item, key) =>{
+    console.log(item.grade)
+    if (_.includes(item, 100)){
+        console.log(studentGrades[key].name)
+    }
+})
+
+console.log(checkScore)
+
+
+let person = studentGrades.find((student)=> student.grade === 100)
+console.log(person)
+
+let pizzaToppingPrices = [{name: 'Onions', price: .54},
+    {name: 'Green Peppers', price: .42},
+    {name: 'Pepperoni', price: 1.50},
+    {name: 'Bacon', price: 1.35},
+    {name: 'Mushrooms', price: .85},
+    {name: 'Meatball', price: 1.46},
+    {name: 'Steak', price: 2.05},
+    {name: 'Shrimp', price: 2.25}];
+
+
+let chunckArray = _.chunk(pizzaToppingPrices, 3);
+console.log(chunckArray)
+
+
+chunckArray.forEach((item)=>{
+    console.log("**************")
+    item.forEach((topping) =>{
+        console.log(topping.name)
+    })
+})
+
+
+function getPriceGroups() {
+    let result = _.groupBy(pizzaToppingPrices, (item) =>{
+        return Math.floor(item.price / 1.0)
+    })
+    return result
+}
+console.log(getPriceGroups())
+
+
+
 
 
 
