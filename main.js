@@ -3,9 +3,9 @@ let data = [
     {name: 'Mary'},
     {name: 'Joe'},
     {name: 'Ben'},
-]
+];
 
-console.log(data.length)
+console.log(data.length);
 
 // JS
 function getNamesJS() {
@@ -14,7 +14,7 @@ function getNamesJS() {
     });
 }
 
-console.log(getNamesJS())
+console.log(getNamesJS());
 
 // Lodash
 function getNames() {
@@ -23,17 +23,17 @@ function getNames() {
     })
 }
 
-console.log(getNames())
+console.log(getNames());
 
 // JS
 function getJohnJS() {
     let result = data.filter((obj) =>{
         return (obj['name'] === 'John')
-    }).length
+    }).length;
     return result
 }
 
-console.log(getJohnJS())
+console.log(getJohnJS());
 
 
 // Lodash
@@ -41,12 +41,12 @@ console.log(getJohnJS())
 function getJohn() {
     let result = _.filter(data, (obj)=>{
         return (obj['name'] == 'John')
-    }).length
+    }).length;
     return result
 
 }
 
-console.log(getJohn())
+console.log(getJohn());
 
 
 
@@ -96,12 +96,12 @@ function getAgeGroups() {
 
 }
 
-console.log(getAgeGroups())
+console.log(getAgeGroups());
 
 
 let gradeArray = [56, 88, 98, 78, 100];
 
-console.log('Any perfect scores', _.includes(gradeArray, 100))
+console.log('Any perfect scores', _.includes(gradeArray, 100));
 
 let studentGrades = [{"name": "Alice", "grade": 56},
     {"name": "Tom:", "grade": 88},
@@ -110,17 +110,17 @@ let studentGrades = [{"name": "Alice", "grade": 56},
     {"name": "Mickey", "grade": 100}];
 
 let checkScore = _.forEach(studentGrades, (item, key) =>{
-    console.log(item.grade)
+    console.log(item.grade);
     if (_.includes(item, 100)){
         console.log(studentGrades[key].name)
     }
-})
+});
 
-console.log(checkScore)
+console.log(checkScore);
 
 
-let person = studentGrades.find((student)=> student.grade === 100)
-console.log(person)
+let person = studentGrades.find((student)=> student.grade === 100);
+console.log(person);
 
 let pizzaToppingPrices = [{name: 'Onions', price: .54},
     {name: 'Green Peppers', price: .42},
@@ -133,27 +133,40 @@ let pizzaToppingPrices = [{name: 'Onions', price: .54},
 
 
 let chunckArray = _.chunk(pizzaToppingPrices, 3);
-console.log(chunckArray)
+console.log(chunckArray);
 
 
 chunckArray.forEach((item)=>{
-    console.log("**************")
+    console.log("**************");
     item.forEach((topping) =>{
         console.log(topping.name)
     })
-})
+});
 
 
 function getPriceGroups() {
     let result = _.groupBy(pizzaToppingPrices, (item) =>{
         return Math.floor(item.price / 1.0)
-    })
+    });
     return result
 }
-console.log(getPriceGroups())
+console.log(getPriceGroups());
 
 
 
+let pizzaSpecials = [{name: "Veggie Lux", crust: "thin", toppings: "Onions, Green Peppers, Mushrooms"},
+    {name: "Meat Lovers", crust: "thick", toppings: "Pepperoni, Bacon, Meatball, Steak"},
+    {name: "Taco Toppings", crust: "thick", toppings: "Beef, Cheddar, Sour Cream"},
+    {name: "Chicken Little", crust: "thick", toppings: ["Chicken", "Cheese", "Garlic", "Spinach"]}
+];
 
+
+console.log(pizzaSpecials);
+
+let needMints = _.forEach(pizzaSpecials, (item, key) =>{
+    if (_.includes(item.toppings, 'Onions') || _.includes(item.toppings, 'Garlic')){
+        console.log(item.name)
+    }
+});
 
 
